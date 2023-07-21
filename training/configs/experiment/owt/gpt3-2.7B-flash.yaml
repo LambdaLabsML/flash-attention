@@ -1,6 +1,6 @@
 # @package _global_
 defaults:
-  - /experiment/owt/gpt3xl-flash-8k.yaml
+  - /experiment/owt/gpt3xl-flash.yaml
   - override /logger: csv
 
 model:

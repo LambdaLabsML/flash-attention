@@ -3,6 +3,7 @@ defaults:
   - /experiment/owt/base.yaml
   - override /model: gpt2
   - override /model/gpt2model: gpt2-small
+  - override /logger: csv
 
 model:
   config:
@@ -17,3 +18,6 @@ model:
 datamodule:
   # batch_size: 64
   batch_size: ${eval:"16 if ${train.gpu_mem} < 24 else (32 if ${train.gpu_mem} < 40 else 64)"}
+
+trainer:
+  max_steps: 20
