@@ -18,4 +18,8 @@ train:
   optimizer:
     lr: 1.6e-4
   scheduler:
-    num_training_steps: 20
+    num_training_steps: 100
+    num_warmup_steps: 10
+
+trainer:
+  max_steps: 100
