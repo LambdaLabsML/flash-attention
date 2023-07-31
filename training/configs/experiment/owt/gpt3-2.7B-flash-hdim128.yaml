@@ -1,0 +1,25 @@
+# @package _global_
+defaults:
+  - /experiment/owt/gpt3xl-flash.yaml
+  - override /logger: csv
+
+model:
+  config:
+    n_embd: 2560
+    n_head: 20
+    n_layer: 32
+    initializer_range: ${eval:"(2 / (${.n_embd} * 5)) ** 0.5"}
+    mlp_checkpoint_lvl: 0
+
+datamodule:
+  batch_size: 4
+
+train:
+  optimizer:
+    lr: 1.6e-4
+  scheduler:
+    num_training_steps: 100
+    num_warmup_steps: 10
+
+trainer:
+  max_steps: 100
